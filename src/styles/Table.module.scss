@@ -1,0 +1,278 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.teamTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 700px;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+  }
+
+  th {
+    font-weight: 600;
+    color: #555;
+    background-color: rgba(233, 234, 235, 0.78);
+  }
+
+  tr {
+    border-bottom: 1px solid #eee;
+  }
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+}
+
+.nameHeader {
+  border-right: 1px solid #ddd;
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-right: 1px solid #ddd;
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .nameInfo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .name {
+    font-weight: 600;
+    color: #111;
+  }
+
+  .username {
+    font-size: 0.85rem;
+    color: #666;
+  }
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #d5d7da;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  text-transform: capitalize;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &.active::before {
+    background-color: #1b873b;
+  }
+  &.busy::before {
+    background-color: #b27a00;
+  }
+  &.away::before {
+    background-color: #c27c00;
+  }
+  &.onleave::before {
+    background-color: #c0392b;
+  }
+  &.terminated::before {
+    background-color: #666;
+  }
+  &.donotdisturb::before {
+    background-color: #a10d0d;
+  }
+}
+
+.teamsCell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.teamPill {
+  border-radius: 12px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid #f9f5ff;
+}
+
+.first {
+  color: #6941c6;
+  background: #e9d7fe;
+  border-color: #f9f5ff;
+}
+
+.second {
+  color: #175cd3;
+  background: #b2ddff;
+  border-color: #eff8ff;
+}
+
+.third {
+  color: #3538cd;
+  background: #c7d7fe;
+  border-color: #c7d7fe;
+}
+
+.more {
+  color: #414651;
+  background: #e9eaeb;
+  border-color: #fafafa;
+}
+
+.statusPopup {
+  position: absolute;
+  width: 180px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  z-index: 50;
+  font-size: 0.9rem;
+  overflow: hidden;
+
+  .arrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-left: 1px solid #e5e7eb;
+    border-top: 1px solid #e5e7eb;
+    transform: rotate(45deg);
+    top: -6px;
+    left: 24px;
+    z-index: -1;
+  }
+
+  .statusItem {
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f9fafb;
+    }
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    &.active::before {
+      background-color: #1b873b;
+    }
+    &.busy::before {
+      background-color: #b27a00;
+    }
+    &.away::before {
+      background-color: #c27c00;
+    }
+    &.onleave::before {
+      background-color: #c0392b;
+    }
+    &.terminated::before {
+      background-color: #666;
+    }
+    &.donotdisturb::before {
+      background-color: #a10d0d;
+    }
+  }
+
+  .addStatus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+
+//hide unfitting content
+@media (max-width: 1024px) {
+  .teamTable th:nth-child(5),
+  .teamTable td:nth-child(5) {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .teamTable th:nth-child(4),
+  .teamTable td:nth-child(4) {
+    display: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .teamTable th:nth-child(6),
+  .teamTable td:nth-child(6) {
+    display: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .teamTable th:nth-child(3),
+  .teamTable td:nth-child(3) {
+    display: none;
+  }
+
+  .nameCell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .nameCell .avatar {
+    width: 30px;
+    height: 30px;
+  }
+}

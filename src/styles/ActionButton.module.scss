@@ -1,0 +1,64 @@
+//large
+.ActionButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  padding: 30px;
+}
+
+.searchIcon {
+  padding: 10px;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.searchContainer {
+  position: relative;
+  height: 40px;
+}
+
+.searchBar {
+  border: 1px solid #E3E3E3;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.controlButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  gap: 9px;
+  border: 1px solid #E3E3E3;
+  border-radius: 8px;
+  cursor: pointer;
+
+  p {
+    height: fit-content;
+    font-weight: 400;
+  }
+
+  img {
+    height: fit-content;
+  }
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+//small
+@media (max-width: 764px) {
+  .controlBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .searchBar {
+    width: 100%;
+  }
+}
