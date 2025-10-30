@@ -85,6 +85,8 @@ const Table: React.FC = () => {
             </th>
             <th>Email Address</th>
             <th>Teams</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
 
