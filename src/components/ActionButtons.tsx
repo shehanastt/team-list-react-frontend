@@ -9,7 +9,7 @@ const ActionButtons = () => {
             <img src="./images/search.png" alt="Search" className={styles.searchIcon} />
             <input 
             type="text" 
-            placeholder="    Search..." 
+            placeholder="Search..." 
             className={styles.searchBar} 
             />
         </div>

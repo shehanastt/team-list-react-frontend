@@ -30,6 +30,7 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
+    vertical-align: middle;
   }
 }
 
@@ -150,15 +151,23 @@
 
 .statusPopup {
   position: absolute;
-  width: 180px;
+  width: 150px;
   background: #fff;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  padding: 8px;
+  padding: 5px;
   z-index: 50;
   font-size: 0.9rem;
   overflow: hidden;
+
+  &.top {
+    bottom: 110%;
+  }
+
+  &.bottom {
+    top: 110%;
+  }
 
   .arrow {
     position: absolute;
@@ -168,17 +177,28 @@
     border-left: 1px solid #e5e7eb;
     border-top: 1px solid #e5e7eb;
     transform: rotate(45deg);
-    top: -6px;
     left: 24px;
-    z-index: -1;
+
+    &.top {
+      bottom: -6px;
+    }
+
+    &.bottom {
+      top: -6px;
+    }
   }
 
-  .statusItem {
+  .statusList {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .statusOption {
     padding: 8px 14px;
     display: flex;
     align-items: center;
     gap: 8px;
-    border-bottom: 1px solid #f1f1f1;
     cursor: pointer;
     transition: background 0.2s;
 
@@ -186,32 +206,37 @@
       background: #f9fafb;
     }
 
-    &::before {
-      content: "";
+    .dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       display: inline-block;
     }
 
-    &.active::before {
+    &.active .dot {
       background-color: #1b873b;
     }
-    &.busy::before {
+    &.busy .dot {
       background-color: #b27a00;
     }
-    &.away::before {
+    &.away .dot {
       background-color: #c27c00;
     }
-    &.onleave::before {
+    &.onleave .dot {
       background-color: #c0392b;
     }
-    &.terminated::before {
+    &.terminated .dot {
       background-color: #666;
     }
-    &.donotdisturb::before {
+    &.donotdisturb .dot {
       background-color: #a10d0d;
     }
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #f1f1f1;
+    margin: 1px 0;
   }
 
   .addStatus {
@@ -226,22 +251,19 @@
       background: #f3f4f6;
     }
 
-    img {
+    .plusIcon {
       width: 14px;
       height: 14px;
     }
   }
 }
 
-
-//hide unfitting content
 @media (max-width: 1024px) {
   .teamTable th:nth-child(5),
   .teamTable td:nth-child(5) {
     display: none;
   }
 }
-
 
 @media (max-width: 768px) {
   .teamTable th:nth-child(4),
@@ -250,14 +272,12 @@
   }
 }
 
-
 @media (max-width: 600px) {
   .teamTable th:nth-child(6),
   .teamTable td:nth-child(6) {
     display: none;
   }
 }
-
 
 @media (max-width: 480px) {
   .teamTable th:nth-child(3),
